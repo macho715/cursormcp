@@ -1,0 +1,72 @@
+﻿{
+    "mcpServers":  {
+                       "filesystem":  {
+                                          "args":  [
+                                                       "-y",
+                                                       "@modelcontextprotocol/server-filesystem",
+                                                       "C:\\cursor-mcp"
+                                                   ],
+                                          "command":  "npx",
+                                          "timeout":  30,
+                                          "autoApprove":  [
+                                                              "read_file",
+                                                              "list_directory"
+                                                          ],
+                                          "disabled":  false
+                                      },
+                       "playwright":  {
+                                          "args":  [
+                                                       "-y",
+                                                       "@executeautomation/playwright-mcp-server",
+                                                       "--headless",
+                                                       "--no-sandbox"
+                                                   ],
+                                          "command":  "npx",
+                                          "timeout":  60,
+                                          "autoApprove":  [
+
+                                                          ],
+                                          "disabled":  false
+                                      },
+                       "win-cli":  {
+                                       "args":  [
+                                                    "-y",
+                                                    "@simonb97/server-win-cli"
+                                                ],
+                                       "command":  "npx",
+                                       "timeout":  30,
+                                       "autoApprove":  [
+                                                           "tasklist",
+                                                           "dir",
+                                                           "echo"
+                                                       ],
+                                       "disabled":  false
+                                   },
+                       "context7":  {
+                                        "args":  [
+                                                     "-y",
+                                                     "@upstash/context7-mcp"
+                                                 ],
+                                        "command":  "npx",
+                                        "timeout":  45,
+                                        "autoApprove":  [
+                                                            "resolve-library-id",
+                                                            "get-library-docs"
+                                                        ],
+                                        "disabled":  false
+                                    }
+                   },
+    "security":  {
+                     "restrictedCommands":  [
+                                                "rm",
+                                                "del",
+                                                "format",
+                                                "shutdown",
+                                                "reboot"
+                                            ],
+                     "maxMemoryUsage":  "512MB",
+                     "logAllCommands":  true,
+                     "maxCpuUsage":  50,
+                     "requireConfirmation":  true
+                 }
+}
