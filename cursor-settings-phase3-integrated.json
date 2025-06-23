@@ -1,0 +1,71 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "C:\\cursor-mcp"],
+      "timeout": 30,
+      "autoApprove": ["read_file", "list_directory"],
+      "disabled": false,
+      "description": "Secure file operations"
+    },
+    "playwright": {
+      "command": "npx", 
+      "args": ["-y", "@executeautomation/playwright-mcp-server", "--headless", "--no-sandbox"],
+      "timeout": 60,
+      "autoApprove": [],
+      "disabled": false,
+      "description": "Browser automation (manual approval required)"
+    },
+    "win-cli": {
+      "command": "npx",
+      "args": ["-y", "@simonb97/server-win-cli"],
+      "timeout": 30,
+      "autoApprove": ["tasklist", "dir", "echo"],
+      "disabled": false,
+      "description": "Windows CLI safe commands"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "timeout": 45,
+      "autoApprove": ["resolve-library-id", "get-library-docs"],
+      "disabled": false,
+      "description": "Documentation queries"
+    },
+    "seq-think": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking", "--port", "8090"],
+      "timeout": 45,
+      "autoApprove": ["think", "analyze", "plan"],
+      "disabled": false,
+      "description": "Structured reasoning and step-by-step analysis"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search", "--port", "8091", "--api-key", "${BRAVE_API_KEY}"],
+      "timeout": 30,
+      "autoApprove": [],
+      "disabled": false,
+      "description": "Live web search (requires API key)"
+    }
+  },
+  "security": {
+    "workspace.trust.enabled": true,
+    "workspace.trust.startupPrompt": "always",
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "telemetry.telemetryLevel": "off",
+    "update.mode": "manual",
+    "restrictedCommands": ["rm", "del", "format", "shutdown", "reboot"],
+    "maxMemoryUsage": "512MB",
+    "logAllCommands": true,
+    "maxCpuUsage": 50,
+    "requireConfirmation": true
+  },
+  "phase3": {
+    "healthCheckPorts": [8090, 8091],
+    "monitoringEnabled": true,
+    "autoRestart": false,
+    "logLevel": "info"
+  }
+} 
